@@ -1,5 +1,5 @@
 import Providers from "@/context/providers";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Wrapper from "@/components/Wrapper";
 import Sidebar from "@/components/navigation/Sidebar";
 
@@ -30,40 +30,9 @@ const FaceLibrary = lazy(() => import("@/pages/FaceLibrary"));
 const Classification = lazy(() => import("@/pages/ClassificationModel"));
 const Logs = lazy(() => import("@/pages/Logs"));
 const AccessDenied = lazy(() => import("@/pages/AccessDenied"));
-const AuthLanding = lazy(() => import("@/pages/AuthLanding"));
+// Removed AuthLanding - using separate login.html page
 
-// Check if user wants to bypass auth or is authenticated
-function useAuthState() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        // Check if user bypassed auth
-        const authBypass = localStorage.getItem("auth-bypass");
-        if (authBypass === "true") {
-          setIsAuthenticated(true);
-          setIsLoading(false);
-          return;
-        }
-
-        // Check if user is authenticated with Stack
-        const user = await stackClientApp.getUser();
-        setIsAuthenticated(!!user);
-      } catch (error) {
-        console.log("Auth check failed:", error);
-        setIsAuthenticated(false);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    checkAuth();
-  }, []);
-
-  return { isAuthenticated, isLoading };
-}
+// Removed auth state management - keeping existing routing
 
 function App() {
   const { data: config } = useSWR<FrigateConfig>("config", {
@@ -75,9 +44,7 @@ function App() {
       <AuthProvider>
         <BrowserRouter basename={window.baseUrl}>
           <Wrapper>
-            <AuthWrapper>
-              {config?.safe_mode ? <SafeAppView /> : <DefaultAppView />}
-            </AuthWrapper>
+            {config?.safe_mode ? <SafeAppView /> : <DefaultAppView />}
           </Wrapper>
         </BrowserRouter>
       </AuthProvider>
@@ -143,22 +110,6 @@ function SafeAppView() {
   );
 }
 
-function AuthWrapper({ children }: { children: React.ReactNode }) {
-  const { isAuthenticated, isLoading } = useAuthState();
-
-  if (isLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-900">
-        <div className="text-white">Loading...</div>
-      </div>
-    );
-  }
-
-  if (!isAuthenticated) {
-    return <AuthLanding />;
-  }
-
-  return <>{children}</>;
-}
+// Removed AuthWrapper - keeping existing routing
 
 export default App;

@@ -1,17 +1,29 @@
 import { stackClientApp } from "@/stack/client";
 
-export default function AuthLanding() {
+interface AuthLandingProps {
+  onAuthSuccess?: () => void;
+}
+
+export default function AuthLanding({ onAuthSuccess }: AuthLandingProps) {
   const handleGoogleSignIn = async () => {
+    console.log("Starting Google OAuth flow...");
     try {
-      await stackClientApp.signInWithOAuth("google");
+      // Use the correct method for OAuth sign-in
+      const result = await stackClientApp.signInWithOAuth("google");
+      console.log("OAuth sign-in result:", result);
+      onAuthSuccess?.();
     } catch (error) {
       console.error("Google sign-in error:", error);
     }
   };
 
   const handleGithubSignIn = async () => {
+    console.log("Starting GitHub OAuth flow...");
     try {
-      await stackClientApp.signInWithOAuth("github");
+      // Use the correct method for OAuth sign-in
+      const result = await stackClientApp.signInWithOAuth("github");
+      console.log("OAuth sign-in result:", result);
+      onAuthSuccess?.();
     } catch (error) {
       console.error("GitHub sign-in error:", error);
     }
@@ -29,8 +41,21 @@ export default function AuthLanding() {
   const proceedAsGuest = () => {
     // Store a flag that user proceeded as guest
     localStorage.setItem("auth-bypass", "true");
-    // Reload to enter the main app
-    window.location.reload();
+    // Call onAuthSuccess to trigger recheck instead of reload
+    onAuthSuccess?.();
+  };
+
+  const debugAuth = async () => {
+    try {
+      const user = await stackClientApp.getUser();
+      console.log("Debug - Current user:", user);
+      alert(
+        `Current user: ${user ? JSON.stringify(user, null, 2) : "Not authenticated"}`,
+      );
+    } catch (error) {
+      console.error("Debug - Auth error:", error);
+      alert(`Auth error: ${error}`);
+    }
   };
 
   return (
@@ -119,6 +144,13 @@ export default function AuthLanding() {
             className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700 shadow-sm transition-colors duration-200 hover:bg-gray-100"
           >
             Continue as Guest
+          </button>
+
+          <button
+            onClick={debugAuth}
+            className="mt-2 w-full rounded-lg border border-red-300 bg-red-50 px-4 py-2 text-xs text-red-700 shadow-sm transition-colors duration-200 hover:bg-red-100"
+          >
+            Debug Auth Status
           </button>
         </div>
 
