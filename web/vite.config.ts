@@ -36,6 +36,7 @@ export default defineConfig({
         ws: true,
       },
     },
+    allowedHosts: ["homeassistant.local"],
   },
   build: {
     rollupOptions: {
