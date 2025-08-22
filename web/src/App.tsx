@@ -1,7 +1,9 @@
 import Providers from "@/context/providers";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Wrapper from "@/components/Wrapper";
 import Sidebar from "@/components/navigation/Sidebar";
+import { StackHandler, StackProvider, StackTheme } from "@stackframe/react";
+import { stackClientApp } from "@/api/stack";
 
 import { isDesktop, isMobile } from "react-device-detect";
 import Statusbar from "./components/Statusbar";
@@ -28,6 +30,14 @@ const Classification = lazy(() => import("@/pages/ClassificationModel"));
 const Logs = lazy(() => import("@/pages/Logs"));
 const AccessDenied = lazy(() => import("@/pages/AccessDenied"));
 
+function HandlerRoutes() {
+  const location = useLocation();
+
+  return (
+    <StackHandler app={stackClientApp} location={location.pathname} fullPage />
+  );
+}
+
 function App() {
   const { data: config } = useSWR<FrigateConfig>("config", {
     revalidateOnFocus: false,
@@ -37,9 +47,13 @@ function App() {
     <Providers>
       <AuthProvider>
         <BrowserRouter basename={window.baseUrl}>
-          <Wrapper>
-            {config?.safe_mode ? <SafeAppView /> : <DefaultAppView />}
-          </Wrapper>
+          <StackProvider app={stackClientApp}>
+            <StackTheme>
+              <Wrapper>
+                {config?.safe_mode ? <SafeAppView /> : <DefaultAppView />}
+              </Wrapper>
+            </StackTheme>
+          </StackProvider>
         </BrowserRouter>
       </AuthProvider>
     </Providers>
@@ -63,6 +77,7 @@ function DefaultAppView() {
       >
         <Suspense>
           <Routes>
+            <Route path="/handler/*" element={<HandlerRoutes />} />
             <Route
               element={<ProtectedRoute requiredRoles={["viewer", "admin"]} />}
             >
@@ -97,7 +112,10 @@ function SafeAppView() {
         className={cn("absolute bottom-0 left-0 right-0 top-0 overflow-hidden")}
       >
         <Suspense>
-          <ConfigEditor />
+          <Routes>
+            <Route path="/handler/*" element={<HandlerRoutes />} />
+            <Route path="*" element={<ConfigEditor />} />
+          </Routes>
         </Suspense>
       </div>
     </div>
