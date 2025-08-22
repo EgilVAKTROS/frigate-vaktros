@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, RefObject } from "react";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import AutoUpdatingCameraImage from "@/components/camera/AutoUpdatingCameraImage";
 import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";
@@ -319,7 +319,7 @@ export default function ObjectSettingsView({
             />
             {debugDraw && (
               <DebugDrawingLayer
-                containerRef={containerRef}
+                containerRef={containerRef as RefObject<HTMLDivElement>}
                 cameraWidth={cameraConfig.detect.width}
                 cameraHeight={cameraConfig.detect.height}
               />

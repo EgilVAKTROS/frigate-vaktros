@@ -7,10 +7,10 @@ import { useDateLocale } from "./use-date-locale";
 import { useTranslation } from "react-i18next";
 
 type DraggableElementProps = {
-  contentRef: React.RefObject<HTMLElement>;
-  timelineRef: React.RefObject<HTMLDivElement>;
-  segmentsRef: React.RefObject<HTMLDivElement>;
-  draggableElementRef: React.RefObject<HTMLDivElement>;
+  contentRef: React.RefObject<HTMLElement | null>;
+  timelineRef: React.RefObject<HTMLDivElement | null>;
+  segmentsRef: React.RefObject<HTMLDivElement | null>;
+  draggableElementRef: React.RefObject<HTMLDivElement | null>;
   segmentDuration: number;
   showDraggableElement: boolean;
   draggableElementTime?: number;
@@ -72,7 +72,7 @@ function useDraggableElement({
   // track user interaction and adjust scrolling behavior
 
   const [userInteracting, setUserInteracting] = useState(false);
-  const interactionTimeout = useRef<NodeJS.Timeout>();
+  const interactionTimeout = useRef<NodeJS.Timeout | undefined>(undefined);
   const isProgrammaticScroll = useRef(false);
 
   const draggingAtTopEdge = useMemo(() => {

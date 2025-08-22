@@ -9,7 +9,7 @@ import ActivityIndicator from "@/components/indicators/activity-indicator";
 import { snapPointToLines } from "@/utils/canvasUtil";
 
 type PolygonCanvasProps = {
-  containerRef: RefObject<HTMLDivElement>;
+  containerRef: RefObject<HTMLDivElement | null>;
   camera: string;
   width: number;
   height: number;
@@ -310,7 +310,7 @@ export function PolygonCanvas({
               selectedZoneMask.includes(polygon.type)) &&
             index !== activePolygonIndex && (
               <PolygonDrawer
-                stageRef={stageRef}
+                stageRef={stageRef as RefObject<Konva.Stage>}
                 key={index}
                 points={polygon.points}
                 distances={polygon.distances}
@@ -339,7 +339,7 @@ export function PolygonCanvas({
           (selectedZoneMask === undefined ||
             selectedZoneMask.includes(polygons[activePolygonIndex].type)) && (
             <PolygonDrawer
-              stageRef={stageRef}
+              stageRef={stageRef as RefObject<Konva.Stage>}
               key={activePolygonIndex}
               points={polygons[activePolygonIndex].points}
               distances={polygons[activePolygonIndex].distances}

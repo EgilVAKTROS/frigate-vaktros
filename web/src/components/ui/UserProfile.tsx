@@ -1,4 +1,3 @@
-import React from "react";
 import { useUser } from "@stackframe/react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -38,7 +37,7 @@ export function UserProfile({ className, showDetails = true }: UserProfileProps)
       <CardHeader className="pb-3">
         <div className="flex items-center space-x-3">
           <Avatar className="h-12 w-12">
-            <AvatarImage src={user.profileImageUrl} alt={user.displayName || user.primaryEmail} />
+            <AvatarImage src={user.profileImageUrl ?? undefined} alt={user.displayName ?? user.primaryEmail ?? undefined} />
             <AvatarFallback>
               {(user.displayName || user.primaryEmail || "U").charAt(0).toUpperCase()}
             </AvatarFallback>
@@ -69,27 +68,27 @@ export function UserProfile({ className, showDetails = true }: UserProfileProps)
               </div>
             )}
             
-            {user.createdAt && (
+            {(user as any).createdAt && (
               <div className="flex items-center space-x-2 text-sm">
                 <Calendar className="h-4 w-4" />
                 <span className="font-medium">Member since:</span>
                 <span className="text-muted-foreground">
-                  {new Date(user.createdAt).toLocaleDateString()}
+                  {new Date((user as any).createdAt).toLocaleDateString()}
                 </span>
               </div>
             )}
             
-            {user.updatedAt && (
+            {(user as any).updatedAt && (
               <div className="flex items-center space-x-2 text-sm">
                 <Calendar className="h-4 w-4" />
                 <span className="font-medium">Last updated:</span>
                 <span className="text-muted-foreground">
-                  {new Date(user.updatedAt).toLocaleDateString()}
+                  {new Date((user as any).updatedAt).toLocaleDateString()}
                 </span>
               </div>
             )}
             
-            {user.emailVerified && (
+            {(user as any).emailVerified && (
               <div className="flex items-center space-x-2 text-sm">
                 <Badge variant="outline" className="text-green-600 border-green-600">
                   ✓ Email Verified

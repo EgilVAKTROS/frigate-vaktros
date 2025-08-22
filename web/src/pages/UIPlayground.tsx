@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState, RefObject } from "react";
 import Heading from "@/components/ui/heading";
 import useSWR from "swr";
 import { FrigateConfig } from "@/types/frigateConfig";
@@ -200,7 +200,7 @@ function UIPlayground() {
     zoomSettings,
     zoomLevels: possibleZoomLevels,
     onZoomChange: handleZoomChange,
-    timelineRef: reviewTimelineRef,
+    timelineRef: reviewTimelineRef as RefObject<HTMLDivElement>,
     timelineDuration: 4 * 60 * 60,
   });
 
@@ -447,7 +447,7 @@ function UIPlayground() {
           {isEventsReviewTimeline && (
             <div className="w-[10px]">
               <SummaryTimeline
-                reviewTimelineRef={reviewTimelineRef} // the ref to the review timeline
+                reviewTimelineRef={reviewTimelineRef as RefObject<HTMLDivElement>} // the ref to the review timeline
                 timelineStart={Math.floor(Date.now() / 1000)} // timestamp start of the timeline - the earlier time
                 timelineEnd={Math.floor(Date.now() / 1000) - 4 * 60 * 60} // end of timeline - the later time
                 segmentDuration={zoomSettings.segmentDuration}

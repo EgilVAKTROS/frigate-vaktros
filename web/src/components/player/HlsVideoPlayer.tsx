@@ -76,7 +76,7 @@ export default function HlsVideoPlayer({
 
   // playback
 
-  const hlsRef = useRef<Hls>();
+  const hlsRef = useRef<Hls | null>(null);
   const [useHlsCompat, setUseHlsCompat] = useState(false);
   const [loadedMetadata, setLoadedMetadata] = useState(false);
   const [bufferTimeout, setBufferTimeout] = useState<NodeJS.Timeout>();

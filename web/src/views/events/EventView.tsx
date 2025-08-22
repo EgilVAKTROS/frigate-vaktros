@@ -24,6 +24,7 @@ import { getChunkedTimeRange } from "@/utils/timelineUtil";
 import axios from "axios";
 import {
   MutableRefObject,
+  RefObject,
   useCallback,
   useEffect,
   useMemo,
@@ -519,7 +520,7 @@ function DetectionReview({
     zoomSettings,
     zoomLevels: possibleZoomLevels,
     onZoomChange: handleZoomChange,
-    timelineRef: reviewTimelineRef,
+    timelineRef: reviewTimelineRef as RefObject<HTMLDivElement>,
     timelineDuration,
   });
 
@@ -825,7 +826,7 @@ function DetectionReview({
             <Skeleton className="w-full" />
           ) : (
             <SummaryTimeline
-              reviewTimelineRef={reviewTimelineRef}
+              reviewTimelineRef={reviewTimelineRef as RefObject<HTMLDivElement>}
               timelineStart={timeRange.before}
               timelineEnd={timeRange.after}
               segmentDuration={zoomSettings.segmentDuration}

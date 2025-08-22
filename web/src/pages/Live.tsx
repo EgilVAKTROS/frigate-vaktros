@@ -11,7 +11,7 @@ import LiveCameraView from "@/views/live/LiveCameraView";
 import LiveDashboardView from "@/views/live/LiveDashboardView";
 import { useTranslation } from "react-i18next";
 
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, RefObject } from "react";
 import useSWR from "swr";
 
 function Live() {
@@ -45,7 +45,7 @@ function Live() {
   const mainRef = useRef<HTMLDivElement | null>(null);
 
   const { fullscreen, toggleFullscreen, supportsFullScreen } =
-    useFullscreen(mainRef);
+    useFullscreen(mainRef as RefObject<HTMLElement>);
 
   useKeyboardListener(["f"], (key, modifiers) => {
     if (!modifiers.down) {

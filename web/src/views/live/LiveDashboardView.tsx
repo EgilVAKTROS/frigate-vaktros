@@ -20,7 +20,7 @@ import {
   FrigateConfig,
 } from "@/types/frigateConfig";
 import { ReviewSegment } from "@/types/review";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, RefObject } from "react";
 import {
   isDesktop,
   isMobile,
@@ -589,7 +589,7 @@ export default function LiveDashboardView({
         <DraggableGridLayout
           cameras={cameras}
           cameraGroup={cameraGroup}
-          containerRef={containerRef}
+          containerRef={containerRef as RefObject<HTMLDivElement>}
           cameraRef={cameraRef}
           includeBirdseye={includeBirdseye}
           onSelectCamera={onSelectCamera}

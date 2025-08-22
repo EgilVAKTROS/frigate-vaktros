@@ -15,8 +15,8 @@ import {
 import { isIOS, isMobile } from "react-device-detect";
 
 export type ReviewTimelineProps = {
-  timelineRef: RefObject<HTMLDivElement>;
-  contentRef: RefObject<HTMLDivElement>;
+  timelineRef: RefObject<HTMLDivElement | null>;
+  contentRef: RefObject<HTMLDivElement | null>;
   segmentDuration: number;
   timelineDuration: number;
   timelineStartAligned: number;

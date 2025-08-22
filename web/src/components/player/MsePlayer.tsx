@@ -338,7 +338,13 @@ function MSEPlayer({
           // console.debug("VideoRTC.buffer", b.byteLength, bufLen);
         } else {
           try {
-            sb?.appendBuffer(data);
+            if (data instanceof SharedArrayBuffer) {
+              const buffer = new ArrayBuffer(data.byteLength);
+              new Uint8Array(buffer).set(new Uint8Array(data));
+              sb?.appendBuffer(buffer);
+            } else {
+              sb?.appendBuffer(data);
+            }
           } catch (e) {
             // no-op
           }

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   MobilePage,
   MobilePageContent,
@@ -23,8 +24,8 @@ import {
 import { isMobile } from "react-device-detect";
 
 type PlatformAwareDialogProps = {
-  trigger: JSX.Element;
-  content: JSX.Element;
+  trigger: React.JSX.Element;
+  content: React.JSX.Element;
   triggerClassName?: string;
   contentClassName?: string;
   open: boolean;
@@ -60,9 +61,9 @@ export default function PlatformAwareDialog({
 }
 
 type PlatformAwareSheetProps = {
-  trigger: JSX.Element;
-  title?: string | JSX.Element;
-  content: JSX.Element;
+  trigger: React.JSX.Element;
+  title?: string | React.JSX.Element;
+  content: React.JSX.Element;
   triggerClassName?: string;
   titleClassName?: string;
   contentClassName?: string;

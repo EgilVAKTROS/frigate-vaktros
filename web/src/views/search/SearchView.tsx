@@ -375,7 +375,7 @@ export default function SearchView({
   >();
 
   // keep track of previous ref to outline thumbnail when dialog closes
-  const prevSearchDetailRef = useRef<SearchResult | undefined>();
+  const prevSearchDetailRef = useRef<SearchResult | undefined>(undefined);
 
   useEffect(() => {
     if (searchDetail === undefined && prevSearchDetailRef.current) {
@@ -567,7 +567,9 @@ export default function SearchView({
                 return (
                   <div
                     key={value.id}
-                    ref={(item) => (itemRefs.current[index] = item)}
+                    ref={(item) => {
+                      if (item) itemRefs.current[index] = item;
+                    }}
                     data-start={value.start_time}
                     className="relative flex flex-col rounded-lg"
                   >

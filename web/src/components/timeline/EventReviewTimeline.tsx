@@ -36,8 +36,8 @@ export type EventReviewTimelineProps = {
   events: ReviewSegment[];
   visibleTimestamps?: number[];
   severityType: ReviewSeverity;
-  timelineRef?: RefObject<HTMLDivElement>;
-  contentRef: RefObject<HTMLDivElement>;
+  timelineRef?: RefObject<HTMLDivElement | null>;
+  contentRef: RefObject<HTMLDivElement | null>;
   onHandlebarDraggingChange?: (isDragging: boolean) => void;
   isZooming: boolean;
   zoomDirection: TimelineZoomDirection;
@@ -160,7 +160,7 @@ export function EventReviewTimeline({
     >
       <VirtualizedEventSegments
         ref={virtualizedSegmentsRef}
-        timelineRef={selectedTimelineRef}
+        timelineRef={selectedTimelineRef as RefObject<HTMLDivElement>}
         segments={segmentTimes}
         events={events}
         segmentDuration={segmentDuration}
@@ -169,7 +169,7 @@ export function EventReviewTimeline({
         minimapStartTime={minimapStartTime}
         minimapEndTime={minimapEndTime}
         severityType={severityType}
-        contentRef={contentRef}
+        contentRef={contentRef as React.RefObject<HTMLDivElement>}
         setHandlebarTime={setHandlebarTime}
         dense={dense}
         alignStartDateToTimeline={alignStartDateToTimeline}

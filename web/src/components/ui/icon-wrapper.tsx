@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef } from "react";
+import { forwardRef } from "react";
 import { IconType } from "react-icons";
 
 interface IconWrapperProps {
@@ -7,11 +7,8 @@ interface IconWrapperProps {
   [key: string]: any;
 }
 
-const IconWrapper = forwardRef(
-  (
-    { icon: Icon, className, ...props }: IconWrapperProps,
-    ref: ForwardedRef<HTMLDivElement>,
-  ) => (
+const IconWrapper = forwardRef<HTMLDivElement, IconWrapperProps>(
+  ({ icon: Icon, className, ...props }, ref) => (
     <div {...props} ref={ref}>
       <Icon className={className} />
     </div>

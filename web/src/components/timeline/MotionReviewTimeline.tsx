@@ -40,8 +40,8 @@ export type MotionReviewTimelineProps = {
   events: ReviewSegment[];
   motion_events: MotionData[];
   noRecordingRanges?: RecordingSegment[];
-  contentRef: RefObject<HTMLDivElement>;
-  timelineRef?: RefObject<HTMLDivElement>;
+  contentRef: RefObject<HTMLDivElement | null>;
+  timelineRef?: RefObject<HTMLDivElement | null>;
   onHandlebarDraggingChange?: (isDragging: boolean) => void;
   dense?: boolean;
   isZooming: boolean;
@@ -206,7 +206,7 @@ export function MotionReviewTimeline({
     >
       <VirtualizedMotionSegments
         ref={virtualizedSegmentsRef}
-        timelineRef={selectedTimelineRef}
+        timelineRef={selectedTimelineRef as RefObject<HTMLDivElement>}
         segments={segmentTimes}
         events={events}
         motion_events={motion_events}
@@ -215,7 +215,7 @@ export function MotionReviewTimeline({
         showMinimap={showMinimap}
         minimapStartTime={minimapStartTime}
         minimapEndTime={minimapEndTime}
-        contentRef={contentRef}
+        contentRef={contentRef as React.RefObject<HTMLDivElement>}
         setHandlebarTime={setHandlebarTime}
         dense={dense}
         motionOnly={motionOnly}

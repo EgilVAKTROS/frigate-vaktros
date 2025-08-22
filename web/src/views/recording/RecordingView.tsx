@@ -24,6 +24,7 @@ import {
 import { getChunkedTimeDay } from "@/utils/timelineUtil";
 import {
   MutableRefObject,
+  RefObject,
   useCallback,
   useEffect,
   useMemo,
@@ -288,7 +289,7 @@ export function RecordingView({
   // fullscreen
 
   const { fullscreen, toggleFullscreen, supportsFullScreen } =
-    useFullscreen(mainLayoutRef);
+    useFullscreen(mainLayoutRef as RefObject<HTMLElement>);
 
   // layout
 
@@ -808,7 +809,7 @@ function Timeline({
     zoomSettings,
     zoomLevels: possibleZoomLevels,
     onZoomChange: handleZoomChange,
-    timelineRef: selectedTimelineRef,
+    timelineRef: selectedTimelineRef as RefObject<HTMLDivElement>,
     timelineDuration: timeRange.after - timeRange.before,
   });
 
