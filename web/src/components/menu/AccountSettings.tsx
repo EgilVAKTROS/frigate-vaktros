@@ -24,6 +24,7 @@ import {
 } from "@/components/ui/drawer";
 import { LuLogOut, LuSquarePen } from "react-icons/lu";
 import useSWR from "swr";
+import { useUser } from "@stackframe/react";
 
 import { useState } from "react";
 import axios from "axios";
@@ -39,6 +40,7 @@ export default function AccountSettings({ className }: AccountSettingsProps) {
   const { t } = useTranslation(["views/settings", "common"]);
   const { data: profile } = useSWR("profile");
   const { data: config } = useSWR("config");
+  const stackUser = useUser();
   const logoutUrl = config?.proxy?.logout_url || `${baseUrl}api/logout`;
 
   const [passwordDialogOpen, setPasswordDialogOpen] = useState(false);
@@ -109,46 +111,80 @@ export default function AccountSettings({ className }: AccountSettingsProps) {
         <div className="scrollbar-container w-full flex-col overflow-y-auto overflow-x-hidden">
           <DropdownMenuLabel className="flex flex-col gap-1.5">
             <div>
-              {t("menu.user.current", {
-                ns: "common",
-                user:
-                  profile?.username ||
-                  t("menu.user.anonymous", { ns: "common" }),
-              })}{" "}
-              {t("role." + profile?.role) &&
-                `(${t("role." + profile?.role, { ns: "common" })})`}
+              {stackUser ? (
+                <div className="flex flex-col gap-1">
+                  <div className="font-semibold">
+                    {stackUser.displayName || stackUser.primaryEmail}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {stackUser.primaryEmail}
+                  </div>
+                  {stackUser.id && (
+                    <div className="text-xs text-muted-foreground">
+                      ID: {stackUser.id}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div>
+                  {t("menu.user.current", {
+                    ns: "common",
+                    user:
+                      profile?.username ||
+                      t("menu.user.anonymous", { ns: "common" }),
+                  })}{" "}
+                  {t("role." + profile?.role) &&
+                    `(${t("role." + profile?.role, { ns: "common" })})`}
+                </div>
+              )}
             </div>
           </DropdownMenuLabel>
 
           <DropdownMenuSeparator className={isDesktop ? "my-2" : "my-2"} />
 
-          {profile?.username && profile.username !== "anonymous" && (
+          {stackUser ? (
             <MenuItem
               className={cn(
                 "flex w-full items-center gap-2",
                 isDesktop ? "cursor-pointer" : "p-2 text-sm",
               )}
-              aria-label={t("menu.user.setPassword", { ns: "common" })}
-              onClick={() => setPasswordDialogOpen(true)}
+              aria-label="Sign Out"
+              onClick={() => window.location.href = "/handler/sign-out"}
             >
-              <LuSquarePen className="mr-2 size-4" />
-              <span>{t("menu.user.setPassword", { ns: "common" })}</span>
+              <LuLogOut className="mr-2 size-4" />
+              <span>Sign Out</span>
             </MenuItem>
+          ) : (
+            profile?.username && profile.username !== "anonymous" && (
+              <MenuItem
+                className={cn(
+                  "flex w-full items-center gap-2",
+                  isDesktop ? "cursor-pointer" : "p-2 text-sm",
+                )}
+                aria-label={t("menu.user.setPassword", { ns: "common" })}
+                onClick={() => setPasswordDialogOpen(true)}
+              >
+                <LuSquarePen className="mr-2 size-4" />
+                <span>{t("menu.user.setPassword", { ns: "common" })}</span>
+              </MenuItem>
+            )
           )}
 
-          <MenuItem
-            className={cn(
-              "flex w-full items-center gap-2",
-              isDesktop ? "cursor-pointer" : "p-2 text-sm",
-            )}
-            asChild
-            aria-label={t("menu.user.logout", { ns: "common" })}
-          >
-            <a href={logoutUrl} className="flex items-center gap-2">
-              <LuLogOut className="mr-2 size-4" />
-              <span>{t("menu.user.logout", { ns: "common" })}</span>
-            </a>
-          </MenuItem>
+          {!stackUser && (
+            <MenuItem
+              className={cn(
+                "flex w-full items-center gap-2",
+                isDesktop ? "cursor-pointer" : "p-2 text-sm",
+              )}
+              asChild
+              aria-label={t("menu.user.logout", { ns: "common" })}
+            >
+              <a href={logoutUrl} className="flex items-center gap-2">
+                <LuLogOut className="mr-2 size-4" />
+                <span>{t("menu.user.logout", { ns: "common" })}</span>
+              </a>
+            </MenuItem>
+          )}
         </div>
       </Content>
       <SetPasswordDialog

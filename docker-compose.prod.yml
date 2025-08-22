@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   frigate:
     container_name: frigate
@@ -12,12 +10,14 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - ./config:/config
       - ./storage:/media/frigate
+      - ./web/dist:/opt/frigate/web:ro  # Mount the built web UI
       - type: tmpfs # Optional: 1GB of memory, reduces SSD/SD Card wear
         target: /tmp/cache
         tmpfs:
           size: 1000000000
     ports:
       - "5001:5000"
+      - "8971:8971"
       - "8554:8554" # RTSP feeds
       - "8555:8555/tcp" # WebRTC over tcp
       - "8555:8555/udp" # WebRTC over udp

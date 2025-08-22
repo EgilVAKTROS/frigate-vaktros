@@ -16,6 +16,7 @@ import ProtectedRoute from "@/components/auth/ProtectedRoute";
 import { AuthProvider } from "@/context/auth-context";
 import useSWR from "swr";
 import { FrigateConfig } from "./types/frigateConfig";
+import LandingPage from "./pages/LandingPage";
 
 const Live = lazy(() => import("@/pages/Live"));
 const Events = lazy(() => import("@/pages/Events"));
@@ -94,6 +95,7 @@ function DefaultAppView() {
               <Route path="/faces" element={<FaceLibrary />} />
               <Route path="/classification" element={<Classification />} />
               <Route path="/playground" element={<UIPlayground />} />
+              <Route path="/landing" element={<LandingPage />} />
             </Route>
             <Route path="/unauthorized" element={<AccessDenied />} />
             <Route path="*" element={<Redirect to="/" />} />

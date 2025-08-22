@@ -32,7 +32,41 @@ export default function ModelSelectionView({
   }
 
   if (classificationConfigs.length == 0) {
-    return <div>You need to setup a custom model configuration.</div>;
+    return (
+      <div className="flex size-full items-center justify-center p-8">
+        <div className="text-center">
+          <h2 className="mb-4 text-xl font-semibold">
+            No Classification Models Found
+          </h2>
+          <p className="mb-4 text-muted-foreground">
+            You need to configure classification models in your Frigate
+            configuration.
+          </p>
+          <div className="rounded-lg bg-muted p-4 text-left">
+            <p className="mb-2 font-medium">
+              Classification is not configured in this Frigate instance.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Classification models allow you to train custom AI models to
+              recognize specific objects or states. This feature requires
+              additional configuration and model files.
+            </p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              For more information, see the{" "}
+              <a
+                href="https://docs.frigate.video/configuration/classification"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Frigate documentation
+              </a>
+              .
+            </p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (
