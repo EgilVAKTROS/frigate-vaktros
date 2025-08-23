@@ -4,7 +4,7 @@
     "general": "Thống kê Chung - Frigate",
     "enrichments": "Thống kê Làm giàu Dữ liệu - Frigate",
     "logs": {
-      "frigate": "Nhật ký Frigate - Frigate",
+      "vaktros": "Nhật ký Frigate - Frigate",
       "go2rtc": "Nhật ký Go2RTC - Frigate",
       "nginx": "Nhật ký Nginx - Frigate"
     },

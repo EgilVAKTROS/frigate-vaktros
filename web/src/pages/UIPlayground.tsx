@@ -447,7 +447,9 @@ function UIPlayground() {
           {isEventsReviewTimeline && (
             <div className="w-[10px]">
               <SummaryTimeline
-                reviewTimelineRef={reviewTimelineRef as RefObject<HTMLDivElement>} // the ref to the review timeline
+                reviewTimelineRef={
+                  reviewTimelineRef as RefObject<HTMLDivElement>
+                } // the ref to the review timeline
                 timelineStart={Math.floor(Date.now() / 1000)} // timestamp start of the timeline - the earlier time
                 timelineEnd={Math.floor(Date.now() / 1000) - 4 * 60 * 60} // end of timeline - the later time
                 segmentDuration={zoomSettings.segmentDuration}

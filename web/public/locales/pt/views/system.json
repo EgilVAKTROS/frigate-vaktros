@@ -4,7 +4,7 @@
     "general": "Estatísticas gerais - Frigate",
     "enrichments": "Estatísticas de enriquecimento - Frigate",
     "logs": {
-      "frigate": "Logs do Frigate - Frigate",
+      "vaktros": "Logs do Frigate - Frigate",
       "go2rtc": "Logs do Go2RTC - Frigate",
       "nginx": "Logs do Nginx - Frigate"
     },

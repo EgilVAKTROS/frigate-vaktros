@@ -4,7 +4,7 @@
     "storage": "Statistika prostora - Frigate",
     "general": "Statistika - Frigate",
     "logs": {
-      "frigate": "Frigate dnevniki - Frigate",
+      "vaktros": "Frigate dnevniki - Frigate",
       "go2rtc": "Go2RTC dnevniki - Frigate",
       "nginx": "Nginx dnevniki - Frigate"
     },

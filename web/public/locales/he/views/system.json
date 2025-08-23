@@ -15,7 +15,7 @@
     "general": "סטטיסטיקה כללית - Frigate",
     "enrichments": "סטטיסטיקת העשרה - Frigate",
     "logs": {
-      "frigate": "לוגים - Frigate",
+      "vaktros": "לוגים - Frigate",
       "go2rtc": "לוגים - Go2RTC - Frigate",
       "nginx": "לוגים - Nginx - Frigate"
     }

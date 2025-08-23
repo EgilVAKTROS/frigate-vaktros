@@ -147,7 +147,7 @@
     "general": "Obecné statistiky - Frigate",
     "enrichments": "Statistiky obohacení - Frigate",
     "logs": {
-      "frigate": "Protokoly Frigate - Frigate",
+      "vaktros": "Protokoly Frigate - Frigate",
       "go2rtc": "Protokoly Go2RTC - Frigate",
       "nginx": "Protokoly Nginx - Frigate"
     }

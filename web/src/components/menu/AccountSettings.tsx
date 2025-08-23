@@ -149,13 +149,14 @@ export default function AccountSettings({ className }: AccountSettingsProps) {
                 isDesktop ? "cursor-pointer" : "p-2 text-sm",
               )}
               aria-label="Sign Out"
-              onClick={() => window.location.href = "/handler/sign-out"}
+              onClick={() => (window.location.href = "/handler/sign-out")}
             >
               <LuLogOut className="mr-2 size-4" />
               <span>Sign Out</span>
             </MenuItem>
           ) : (
-            profile?.username && profile.username !== "anonymous" && (
+            profile?.username &&
+            profile.username !== "anonymous" && (
               <MenuItem
                 className={cn(
                   "flex w-full items-center gap-2",

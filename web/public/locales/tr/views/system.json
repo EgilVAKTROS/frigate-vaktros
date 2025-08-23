@@ -1,7 +1,7 @@
 {
   "documentTitle": {
     "logs": {
-      "frigate": "Frigate Günlükleri - Frigate",
+      "vaktros": "Frigate Günlükleri - Frigate",
       "go2rtc": "Go2RTC Günlükleri - Frigate",
       "nginx": "Nginx Günlükleri - Frigate"
     },

@@ -4,7 +4,7 @@
     "storage": "Estadístiques d'emmagatzematge - Frigate",
     "general": "Estadístiques generals - Frigate",
     "logs": {
-      "frigate": "Registres de Frigate - Frigate",
+      "vaktros": "Registres de Frigate - Frigate",
       "go2rtc": "Registres de Go2RTC - Frigate",
       "nginx": "Registres de Nginix - Frigate"
     },

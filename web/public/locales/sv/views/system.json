@@ -4,7 +4,7 @@
     "general": "Allmän statistik - Frigate",
     "cameras": "Kamerastatistik - Frigate",
     "logs": {
-      "frigate": "Frigate-loggar - Frigate",
+      "vaktros": "Frigate-loggar - Frigate",
       "go2rtc": "Go2RTC-loggar - Frigate",
       "nginx": "Nginx-loggar - Frigate"
     },

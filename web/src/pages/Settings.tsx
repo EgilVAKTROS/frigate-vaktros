@@ -163,27 +163,36 @@ export default function Settings() {
     }
   }, [tabsRef, pageToggle]);
 
-  useSearchEffect("page", (page: string) => {
-    if (allSettingsViews.includes(page as SettingsType)) {
-      // Restrict viewer to UI settings
-      if (!isAdmin && !["ui", "debug"].includes(page)) {
-        setPage("ui");
-      } else {
-        setPage(page as SettingsType);
+  const handlePageSearchEffect = useCallback(
+    (page: string) => {
+      if (allSettingsViews.includes(page as SettingsType)) {
+        // Restrict viewer to UI settings
+        if (!isAdmin && !["ui", "debug"].includes(page)) {
+          setPage("ui");
+        } else {
+          setPage(page as SettingsType);
+        }
       }
-    }
-    // don't clear url params if we're creating a new object mask
-    return !(searchParams.has("object_mask") || searchParams.has("event_id"));
-  });
+      // don't clear url params if we're creating a new object mask
+      return !(searchParams.has("object_mask") || searchParams.has("event_id"));
+    },
+    [isAdmin, searchParams],
+  );
 
-  useSearchEffect("camera", (camera: string) => {
-    const cameraNames = cameras.map((c) => c.name);
-    if (cameraNames.includes(camera)) {
-      setSelectedCamera(camera);
-    }
-    // don't clear url params if we're creating a new object mask or trigger
-    return !(searchParams.has("object_mask") || searchParams.has("event_id"));
-  });
+  const handleCameraSearchEffect = useCallback(
+    (camera: string) => {
+      const cameraNames = cameras.map((c) => c.name);
+      if (cameraNames.includes(camera)) {
+        setSelectedCamera(camera);
+      }
+      // don't clear url params if we're creating a new object mask or trigger
+      return !(searchParams.has("object_mask") || searchParams.has("event_id"));
+    },
+    [cameras, searchParams],
+  );
+
+  useSearchEffect("page", handlePageSearchEffect);
+  useSearchEffect("camera", handleCameraSearchEffect);
 
   useEffect(() => {
     document.title = t("documentTitle.default");

@@ -5,7 +5,7 @@
     "general": "Estatísticas Xerais - Frigate",
     "enrichments": "Estatísticas complementarias - Frigate",
     "logs": {
-      "frigate": "Rexistros de Frigate - Frigate"
+      "vaktros": "Rexistros de Frigate - Frigate"
     }
   },
   "title": "Sistema",

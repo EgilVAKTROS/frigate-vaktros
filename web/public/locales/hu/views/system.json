@@ -4,7 +4,7 @@
     "storage": "Tárhely statisztikák - Frigate",
     "general": "Általános Statisztikák - Frigate",
     "logs": {
-      "frigate": "Frigate naplók - Frigate",
+      "vaktros": "Frigate naplók - Frigate",
       "go2rtc": "Go2RTC naplók - Frigate",
       "nginx": "Nginx naplók - Frigate"
     },

@@ -288,8 +288,9 @@ export function RecordingView({
 
   // fullscreen
 
-  const { fullscreen, toggleFullscreen, supportsFullScreen } =
-    useFullscreen(mainLayoutRef as RefObject<HTMLElement>);
+  const { fullscreen, toggleFullscreen, supportsFullScreen } = useFullscreen(
+    mainLayoutRef as RefObject<HTMLElement>,
+  );
 
   // layout
 

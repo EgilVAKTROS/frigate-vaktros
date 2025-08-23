@@ -44,8 +44,9 @@ function Live() {
 
   const mainRef = useRef<HTMLDivElement | null>(null);
 
-  const { fullscreen, toggleFullscreen, supportsFullScreen } =
-    useFullscreen(mainRef as RefObject<HTMLElement>);
+  const { fullscreen, toggleFullscreen, supportsFullScreen } = useFullscreen(
+    mainRef as RefObject<HTMLElement>,
+  );
 
   useKeyboardListener(["f"], (key, modifiers) => {
     if (!modifiers.down) {

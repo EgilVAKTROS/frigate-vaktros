@@ -83,7 +83,7 @@ const LandingPage: React.FC = () => {
               >
                 <Camera className="h-8 w-8 text-primary" />
                 <span className="text-xl font-bold text-foreground">
-                  Frigate
+                  VAKTROS
                 </span>
               </button>
             </div>
@@ -120,7 +120,7 @@ const LandingPage: React.FC = () => {
               <span className="block text-primary">Security Made Simple</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-muted-foreground sm:text-xl">
-              Frigate is an open-source NVR with real-time local object
+              VAKTROS is an open-source NVR with real-time local object
               detection for IP cameras. Monitor your home or business with
               AI-powered video surveillance that's private, secure, and easy to
               use.
@@ -186,7 +186,7 @@ const LandingPage: React.FC = () => {
                 Ready to get started?
               </h3>
               <p className="mt-4 text-lg text-muted-foreground">
-                Join thousands of users who trust Frigate for their security
+                Join thousands of users who trust VAKTROS for their security
                 needs.
               </p>
               <div className="mt-8">
@@ -224,12 +224,12 @@ const LandingPage: React.FC = () => {
               >
                 <Camera className="h-6 w-6 text-primary" />
                 <span className="text-lg font-semibold text-foreground">
-                  Frigate
+                  VAKTROS
                 </span>
               </button>
             </div>
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Frigate. Open source NVR with
+              © {new Date().getFullYear()} VAKTROS. Open source NVR with
               real-time AI object detection.
             </p>
           </div>

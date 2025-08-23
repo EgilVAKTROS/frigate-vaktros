@@ -221,3 +221,20 @@
 1755905811: mosquitto version 2.0.22 running
 1755905817: New connection from 172.18.0.3:43003 on port 1883.
 1755905817: New client connected from 172.18.0.3:43003 as frigate (p2, c1, k60).
+1755907612: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1755908777: Client frigate has exceeded timeout, disconnecting.
+1755908827: New connection from 172.18.0.3:36069 on port 1883.
+1755908827: New client connected from 172.18.0.3:36069 as frigate (p2, c1, k60).
+1755908958: Client frigate has exceeded timeout, disconnecting.
+1755909104: New connection from 172.18.0.3:38341 on port 1883.
+1755909104: New client connected from 172.18.0.3:38341 as frigate (p2, c1, k60).
+1755909411: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1755909943: Client frigate has exceeded timeout, disconnecting.
+1755910116: New connection from 172.18.0.3:49687 on port 1883.
+1755910116: New client connected from 172.18.0.3:49687 as frigate (p2, c1, k60).
+1755910116: Client frigate closed its connection.
+1755910122: New connection from 172.18.0.3:53013 on port 1883.
+1755910122: New client connected from 172.18.0.3:53013 as frigate (p2, c1, k60).
+1755911214: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1755913015: Saving in-memory database to /mosquitto/data//mosquitto.db.
+1755914816: Saving in-memory database to /mosquitto/data//mosquitto.db.

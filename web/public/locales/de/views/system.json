@@ -52,7 +52,7 @@
     "storage": "Speicherstatistiken - Frigate",
     "general": "Allgemeine Statistiken - Frigate",
     "logs": {
-      "frigate": "Frigate Protokolle – Frigate",
+      "vaktros": "Frigate Protokolle – Frigate",
       "go2rtc": "Go2RTC Protokolle - Frigate",
       "nginx": "Nginx Protokolle - Frigate"
     },
