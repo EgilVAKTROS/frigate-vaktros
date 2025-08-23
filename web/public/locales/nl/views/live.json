@@ -97,8 +97,8 @@
   },
   "notifications": "Meldingen",
   "audio": "Geluid",
-  "documentTitle": "Live - Frigate",
-  "documentTitle.withCamera": "{{camera}} - Live - Frigate",
+  "documentTitle": "Live - Vaktros",
+  "documentTitle.withCamera": "{{camera}} - Live - Vaktros",
   "autotracking": {
     "enable": "Automatisch volgen inschakelen",
     "disable": "Automatisch volgen uitschakelen"

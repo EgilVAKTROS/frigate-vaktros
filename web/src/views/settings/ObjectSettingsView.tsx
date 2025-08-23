@@ -1,4 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef, useState, RefObject } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  RefObject,
+} from "react";
 import ActivityIndicator from "@/components/indicators/activity-indicator";
 import AutoUpdatingCameraImage from "@/components/camera/AutoUpdatingCameraImage";
 import { CameraConfig, FrigateConfig } from "@/types/frigateConfig";

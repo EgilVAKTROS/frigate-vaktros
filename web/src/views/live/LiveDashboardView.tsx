@@ -20,7 +20,14 @@ import {
   FrigateConfig,
 } from "@/types/frigateConfig";
 import { ReviewSegment } from "@/types/review";
-import { useCallback, useEffect, useMemo, useRef, useState, RefObject } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  RefObject,
+} from "react";
 import {
   isDesktop,
   isMobile,

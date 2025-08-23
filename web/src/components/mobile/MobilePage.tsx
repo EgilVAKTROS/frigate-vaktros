@@ -148,21 +148,25 @@ export function MobilePageContent({
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <div
           className={cn(
             "fixed inset-0 z-50 mb-12 bg-background",
             isPWA && "mb-16",
             "landscape:mb-14 landscape:md:mb-16",
             className,
           )}
-          initial={{ x: "100%" }}
-          animate={{ x: context.open ? 0 : "100%" }}
-          exit={{ x: "100%" }}
-          transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          onAnimationComplete={handleAnimationComplete}
         >
-          {children}
-        </motion.div>
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: context.open ? 0 : "100%" }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            onAnimationComplete={handleAnimationComplete}
+            style={{ height: "100%", width: "100%" }}
+          >
+            {children}
+          </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

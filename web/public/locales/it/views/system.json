@@ -5,7 +5,7 @@
     "storage": "Statistiche archiviazione - Frigate",
     "general": "Statistiche generali - Frigate",
     "logs": {
-      "frigate": "Registri Frigate - Frigate",
+      "vaktros": "Registri Frigate - Frigate",
       "go2rtc": "Registri Go2RTC - Frigate",
       "nginx": "Registri Nginx - Frigate"
     }

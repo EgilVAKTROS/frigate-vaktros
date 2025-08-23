@@ -597,7 +597,7 @@ export default function LiveCameraView({
                   camera.onvif.autotracking.enabled_in_config
                 }
                 transcriptionEnabled={
-                  camera.audio_transcription.enabled_in_config
+                  camera.audio_transcription?.enabled_in_config || false
                 }
                 fullscreen={fullscreen}
                 streamName={streamName ?? ""}

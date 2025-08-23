@@ -28,7 +28,7 @@
     "general": "Yleiset tilastot - Frigate",
     "enrichments": "Rikastetut tilastot - Frigate",
     "logs": {
-      "frigate": "Frigaten lokit - Frigate",
+      "vaktros": "Frigaten lokit - Frigate",
       "go2rtc": "Go2RTC lokit - Frigate",
       "nginx": "Nginx lokit - Frigate"
     }

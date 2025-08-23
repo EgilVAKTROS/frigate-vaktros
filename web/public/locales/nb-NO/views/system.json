@@ -3,7 +3,7 @@
     "cameras": "Kamerastatistikk - Frigate",
     "storage": "Lagringsstatistikk - Frigate",
     "logs": {
-      "frigate": "Frigate-logger - Frigate",
+      "vaktros": "Frigate-logger - Frigate",
       "go2rtc": "Go2RTC-logger - Frigate",
       "nginx": "Nginx-logger - Frigate"
     },

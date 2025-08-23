@@ -3,7 +3,7 @@
     "cameras": "Kamerų Statistika - Frigate",
     "storage": "Saugyklos Statistika - Frigate",
     "logs": {
-      "frigate": "Frigate Žurnalas - Frigate",
+      "vaktros": "Frigate Žurnalas - Frigate",
       "go2rtc": "Go2RTC Žurnalas - Frigate",
       "nginx": "Nginx Žurnalas - Frigate"
     },

@@ -20,3 +20,5 @@ core
 .idea/*
 .ipynb_checkpoints
 storage/clips/*
+storage/frigate-*
+mqtt/log/mosquitto.log

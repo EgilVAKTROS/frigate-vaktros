@@ -4,7 +4,7 @@
     "logs": {
       "nginx": "Nginx Logboeken - Frigate",
       "go2rtc": "Go2RTC Logboeken - Frigate",
-      "frigate": "Frigate Logboek - Frigate"
+      "vaktros": "Frigate Logboek - Frigate"
     },
     "storage": "Opslag Statistieken - Frigate",
     "cameras": "Camera Statistieken - Frigate",

@@ -5,7 +5,7 @@
     "general": "一般統計 - Frigate",
     "enrichments": "進階功能統計 - Frigate",
     "logs": {
-      "frigate": "Frigate 日誌 - Frigate",
+      "vaktros": "Frigate 日誌 - Frigate",
       "nginx": "Nginx 日誌 - Frigate",
       "go2rtc": "Go2RTC 日誌 - Frigate"
     }
