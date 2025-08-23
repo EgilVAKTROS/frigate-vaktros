@@ -84,3 +84,11 @@ cd /tmp/nginx
 
 make CC="ccache gcc" -j$(nproc) && make install
 rm -rf /usr/local/nginx/html /usr/local/nginx/conf/*.default
+
+# ------------------------------------------------
+# ADD CUSTOM CONFIG
+# ------------------------------------------------
+cat > /usr/local/nginx/conf/listen.conf <<'EOL'
+listen 8971;        # plain HTTP for dev
+# listen 8971 ssl;  # uncomment for HTTPS if certs exist
+EOL

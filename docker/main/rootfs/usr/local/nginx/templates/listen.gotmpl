@@ -8,7 +8,7 @@ listen 5000;
 {{ if .tls }}
     {{ if .tls.enabled }}
         # external HTTPS (IPv4 always; IPv6 optional)
-        listen 8971 ssl;
+        listen 8971;
         {{ if .ipv6 }}{{ if .ipv6.enabled }}listen [::]:8971 ssl;{{ end }}{{ end }}
 
         ssl_certificate /etc/letsencrypt/live/frigate/fullchain.pem;
