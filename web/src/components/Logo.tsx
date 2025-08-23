@@ -6,7 +6,7 @@ type LogoProps = {
 export default function Logo({ className }: LogoProps) {
   return (
     <svg
-      viewBox="-80 0 400 320"
+      viewBox="-75 0 400 320"
       className={cn("fill-current w-full h-full", className)}
       preserveAspectRatio="xMidYMid meet"
     >
